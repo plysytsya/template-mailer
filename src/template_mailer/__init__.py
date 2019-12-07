@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from pkg_resources import get_distribution, DistributionNotFound
-from .email_client import EmailClient
+from .smtp_client import SMTPClient
 from .mail_merge import render_template
 
 try:

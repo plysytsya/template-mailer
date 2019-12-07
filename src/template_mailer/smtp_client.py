@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 import os
 
 
-class EmailClient:
+class SMTPClient:
     def __init__(self, SMTP_HOST=None, SMTP_PORT=None, EMAIL_USER=None, EMAIL_PASSWORD=None):
         self.smtp = os.environ.get("SMTP_HOST", default=SMTP_HOST)
         self.port = os.environ.get("SMTP_PORT", default=SMTP_PORT)
