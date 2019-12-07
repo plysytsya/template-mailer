@@ -4,7 +4,8 @@ from email.mime.text import MIMEText
 import os
 import logging
 
-logging.basicConfig(level=logging.INFO)
+log_format = "%(asctime)s : %(levelname)s : %(name)s : %(message)s"
+logging.basicConfig(format=log_format, level=logging.INFO)
 
 
 class SMTPClient:
@@ -25,7 +26,7 @@ class SMTPClient:
 
     def send(self, recipient, subject, html):
         self.connect()
-        message = self.build_message(html)
+        message = self.build_message(subject, html)
         self.server.sendmail(self.username, recipient, message)
         self.logger.info("Sent email to %s" % recipient)
         self.server.quit()
@@ -47,8 +48,9 @@ class SMTPClient:
         self.server.quit()
         self.logger.info("Disconnected from %s" % self.smtp_host)
 
-    def build_message(self, html):
+    def build_message(self, subject, html):
         message = MIMEMultipart("alternative")
+        message["Subject"] = subject
         mime_text = MIMEText(html, "html")
         message.attach(mime_text)
         return message.as_string()
