@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[31]:
-
-
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -16,6 +10,7 @@ class EmailClient:
         self.port = os.environ.get("SMTP_PORT", default=SMTP_PORT)
         self.username = os.environ.get("EMAIL_USER", default=EMAIL_USER)
         self.password = os.environ.get("EMAIL_PASSWORD", default=EMAIL_PASSWORD)
+        self.server = None
 
     def send(self, recipient, subject, html):
         self.connect()
