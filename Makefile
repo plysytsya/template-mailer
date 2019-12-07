@@ -7,6 +7,6 @@ clean:
 	find . -type f -name '*.pyc' -delete
 
 test:
-	nosetests -v
+	python setup.py test
 
 .PHONY: test
