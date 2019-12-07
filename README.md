@@ -1,3 +1,6 @@
+![GitHub Actions status | sdras/awesome-actions](https://github.com/plysytsya/template-mailer/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/plysytsya/template-mailer/branch/master/graph/badge.svg)]
+
 # template-mailer
 
 A simple python client for sending mass emails from html templates.
