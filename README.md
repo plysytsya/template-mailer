@@ -1,6 +1,6 @@
 # template-mailer
 
-A simple client for sending mass emails from html templates.
+A simple python client for sending mass emails from html templates.
 
 
 ## Description
@@ -19,7 +19,7 @@ Provide your html-template as a string to the render_template-method:
     '<html> foo: bar </html>'
 
 
-Use the SMTPClient to send rendered template as html-email with the SMTPClient:
+Use the SMTPClient to send the rendered template as html-email with the SMTPClient:
 
 
     >>> from template_mailer import SMTPClient
@@ -29,11 +29,11 @@ Use the SMTPClient to send rendered template as html-email with the SMTPClient:
 By default the client will look for the following environment variables:
 
     SMTP_HOST
-    SMTP_PORT
+    SMTP_PORT (starttls)
     EMAIL_USER (your own email address)
     EMAIL_PASSWORD
 
-You can also the SMTP configurations in plain form:
+You can provide the SMTP configurations in plain form as well:
 
     >>> smtp_client = SMTPClient("smtp.gmail.com", 587, "your_email@gmail.coim", "your_password")
 
@@ -44,7 +44,7 @@ You can also the SMTP configurations in plain form:
 The default email encryption is TLS. An SSL option is not yet provided and will be part of a future release.
 
 ### Missing data
-If you don't provide enough data to populate all variables in the template the render_template method will throw an error:
+The render_template method will throw an error if you don't provide enough data to populate all template-variables:
 
     >>> from template_mailer import render_template
     >>> template = "<html> foo: {{ variable }} ham: {{ second_variable }} </html>"
@@ -54,7 +54,7 @@ If you don't provide enough data to populate all variables in the template the r
     ...
     jinja2.exceptions.UndefinedError: 'second_variable' is undefined
 
-To change this policy you can provide an option to the render_template-method:
+To change this policy you can provide option undefined="allow" to the render_template-method:
 
     >>> from template_mailer import render_template
     >>> template = "<html> foo: {{ variable }} ham: {{ second_variable }} </html>"
