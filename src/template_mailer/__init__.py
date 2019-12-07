@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from pkg_resources import get_distribution, DistributionNotFound
+from .email_client import EmailClient
+from .mail_merge import render_template
 
 try:
     # Change here if project is renamed and does not equal the package name

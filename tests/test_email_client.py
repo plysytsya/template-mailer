@@ -2,7 +2,7 @@ import unittest
 import smtplib
 from unittest.mock import MagicMock
 
-from template_mailer.email_client import EmailClient
+from template_mailer import EmailClient
 
 
 class TestEmailClient(unittest.TestCase):
