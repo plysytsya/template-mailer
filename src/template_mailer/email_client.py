@@ -17,7 +17,7 @@ class EmailClient:
         self.username = os.environ.get("EMAIL_USER", default=EMAIL_USER)
         self.password = os.environ.get("EMAIL_PASSWORD", default=EMAIL_PASSWORD)
 
-    def send(self, subject, recipient, html):
+    def send(self, recipient, subject, html):
         self.connect()
         message = self.build_message(html)
         self.server.sendmail(self.username, recipient, message)
