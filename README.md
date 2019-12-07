@@ -31,10 +31,10 @@ Use the SMTPClient to send the rendered template as html-email with the SMTPClie
 
 By default the client will look for the following environment variables:
 
-    SMTP_HOST
-    SMTP_PORT (starttls)
-    EMAIL_USER (your own email address)
-    EMAIL_PASSWORD
+`SMTP_HOST`,
+`SMTP_PORT` (starttls),
+`EMAIL_USER` (your email address),
+`EMAIL_PASSWORD`
 
 You can provide the SMTP configurations in plain form as well:
 
