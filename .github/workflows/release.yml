@@ -24,5 +24,5 @@ jobs:
     - name: get latest tag
       run: |
         RELEASE_VERSION="$(git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1 2>&1)"
-        git describe --tags
+        echo $RELEASE_VERSION
 
