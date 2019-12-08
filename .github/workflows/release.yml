@@ -19,13 +19,13 @@ jobs:
     - name: Test with pytest
       run: |
         make test
-    - name: get latest tag
+    - name: Build
       run: |
-        RELEASE_VERSION="$(git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1 2>&1)"
-        echo $RELEASE_VERSION
-    - name: Publish a Python distribution to PyPI
+        pip install twine
+        python setup.py bdist_wheel
+    - name: Publish package
       uses: pypa/gh-action-pypi-publish@master
       with:
-        user: ${{ secrets.PYPI_USER }}_
+        user: ${{ secrets.PYPI_API_TOKEN }}
         password: ${{ secrets.PYPI_PASSWORD }}
 
