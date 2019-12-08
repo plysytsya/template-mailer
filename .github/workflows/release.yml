@@ -24,6 +24,7 @@ jobs:
         make build
     - name: Publish package
       run: |
+        ls ./dist
         export TWINE_USERNAME="${{secrets.PYPI_USER}}"
         export TWINE_PASSWORD="${{secrets.PYPI_PASSWORD}}"
         export TWINE_NON_INTERACTIVE=true
