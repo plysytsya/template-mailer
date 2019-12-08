@@ -80,7 +80,6 @@ class TestSMTPClient(unittest.TestCase):
         self.smtp_client.connect()
         subject = "subject"
         html = "<p>test</p>"
-        recipient = "kolchosenpunk@gmail.com"
         self.smtp_client.send(
             recipient=self.smtp_client.username, subject=subject, html=html
         )
