@@ -27,4 +27,5 @@ jobs:
     - name: Publish package
       run: |
         twine upload dist/* -u ${{secrets.PYPI_USER}} -p ${{secrets.PYPI_USER}}
+        echo done
 
