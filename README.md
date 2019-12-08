@@ -57,7 +57,7 @@ The render_template method will throw an error if you don't provide enough data 
     ...
     jinja2.exceptions.UndefinedError: 'second_variable' is undefined
 
-To change this policy you can provide option undefined="allow" to the render_template-method:
+To change this policy you can provide the option undefined="allow" to the render_template-method:
 
     >>> from template_mailer import render_template
     >>> template = "<html> foo: {{ variable }} ham: {{ second_variable }} </html>"
