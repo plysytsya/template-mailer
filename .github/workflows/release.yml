@@ -32,3 +32,4 @@ jobs:
         export TWINE_PASSWORD="${{secrets.PYPI_PASSWORD}}"
         export TWINE_NON_INTERACTIVE=true
         twine upload dist/*
+        echo Uploaded to PyPi.org
