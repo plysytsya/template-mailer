@@ -26,6 +26,7 @@ jobs:
         python setup.py bdist_wheel
     - name: Publish package
       run: |
-        twine upload dist/* -u ${{secrets.PYPI_USER}} -p ${{secrets.PYPI_USER}}
-        echo done
-
+        export TWINE_USERNAME="${{secrets.PYPI_USER}}"
+        export TWINE_PASSWORD="${{secrets.PYPI_USER}}"
+        export TWINE_NON_INTERACTIVE=true
+        twine upload dist/*
