@@ -1,8 +1,6 @@
 name: release
 
-on:
-  issue_comment:
-    types: [created, edited]
+on: [push]
 
 jobs:
   build:
@@ -25,4 +23,9 @@ jobs:
       run: |
         RELEASE_VERSION="$(git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1 2>&1)"
         echo $RELEASE_VERSION
+    - name: Publish a Python distribution to PyPI
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        user: ${{ secrets.PYPI_USER }}_
+        password: ${{ secrets.PYPI_PASSWORD }}
 
