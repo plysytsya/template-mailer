@@ -22,6 +22,7 @@ jobs:
     - name: Build
       run: |
         pip install twine
+        pip install wheel
         python setup.py bdist_wheel
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@master
