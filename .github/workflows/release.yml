@@ -22,9 +22,13 @@ jobs:
     - name: Build
       run: |
         make build
+    - name: set pypi release version
+      run: |
+        RELEASE_VERSION="$(git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short)' --count=1 2>&1)"
+        git tag -d $(git tag -l)
+        git tag -a $RELEASE_VERSION -m ''
     - name: Publish package
       run: |
-        ls ./dist
         export TWINE_USERNAME="${{secrets.PYPI_USER}}"
         export TWINE_PASSWORD="${{secrets.PYPI_PASSWORD}}"
         export TWINE_NON_INTERACTIVE=true
