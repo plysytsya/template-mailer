@@ -8,7 +8,7 @@ A simple python client for sending mass emails from html templates.
 
 ## Description
 
-The template-mailer lets you fill variables in html-templates ans send the populated content via email.
+The template-mailer lets you fill variables in html-templates and send the populated content via email.
 It makes use of the jinja2 templating langauge ([Reference](https://jinja.palletsprojects.com/en/2.10.x/)).
 
 ## Usage
